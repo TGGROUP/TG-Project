@@ -1,0 +1,12 @@
+ua\com\tggroup\domain\model\services\Tester.class
+ua\com\tggroup\applayer\rest\HelloResource.class
+ua\com\tggroup\ui\controllers\HelloController.class
+ua\com\tggroup\domain\model\Room.class
+ua\com\tggroup\domain\model\Group.class
+ua\com\tggroup\domain\model\HelloBean.class
+ua\com\tggroup\domain\model\Week.class
+ua\com\tggroup\domain\model\Lesson.class
+ua\com\tggroup\domain\model\Day.class
+ua\com\tggroup\domain\model\services\impl\TimetableImpl.class
+ua\com\tggroup\domain\model\Timetable.class
+ua\com\tggroup\domain\model\services\TimetableService.class

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd ">
+
+       <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+              <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+              <property name="url" value="jdbc:oracle:thin:@localhost:1521/XE"/>
+              <property name="username" value="Cauliflower"/>
+              <property name="password" value="1111"/>
+              <property name="initialSize" value="5"/>
+              <property name="maxTotal" value="8"/>
+       </bean>
+
+       <bean id="managerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+              <property name="packagesToScan" value="ua.com.tggroup.domain.model"/>
+              <property name="dataSource" ref="dataSource"/>
+              <property name="jpaVendorAdapter" ref="jpaVendor"/>
+              <property name="jpaProperties" value="create"/>
+              <!--creates the schema(when the SessionFactory), destroying previous data.-->
+       </bean>
+
+       <bean id="jpaVendor" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+              <property name="database" value="ORACLE"/>
+              <property name="databasePlatform" value="org.hibernate.dialect.Oracle10gDialect"/>
+              <property name="showSql" value="true"/>
+              <property name="generateDdl" value="true"/>
+       </bean>
+
+       <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+              <property name="entityManagerFactory" ref="managerFactory"/>
+       </bean>
+       <tx:annotation-driven />
+</beans>
