@@ -6,13 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="css/left-side.css" type="text/css">
-  <link rel="stylesheet" href="css/admin.css" type="text/css">
-  <link rel="stylesheet" href="css/buttons.css" type="text/css">
-  <script src="js/jquery-2.1.3.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/resources/css/left-side.css" type="text/css">
+  <link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
+  <link rel="stylesheet" href="/resources/css/buttons.css" type="text/css">
+  <script src="/resources/js/jquery-2.1.3.min.js" type="text/javascript"></script>
   <!--<script src="js/menu.js" type="text/javascript"></script>-->
 </head>
 
@@ -45,6 +46,7 @@
 </div>
 
 <div id="content">
+
   <div class="entity">
     <div id="del-pane">
       <a href="#del">&#10006;</a>
