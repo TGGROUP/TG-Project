@@ -8,7 +8,7 @@ $(document).ready(function(){
         var name=$("#name").val();
         $.ajax({
             type:"POST",
-            data:"",
+            data:"name="+name,
             url:"",
             dataType:"json",
             success :  function(data){
