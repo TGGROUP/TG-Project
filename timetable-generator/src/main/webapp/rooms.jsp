@@ -75,13 +75,6 @@
 </div>
 
 
-<div id="delete-ent">
-  <div id="cont">
-    Are u sure?
-    <div id="">Yes</div>
-    <div id="">No</div>
-  </div>
-</div>
 
 </body>
 

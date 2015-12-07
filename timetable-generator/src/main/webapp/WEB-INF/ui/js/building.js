@@ -4,8 +4,8 @@
 $(document).ready(function(){
 
     function addBuilding(){
+        $("#addForm").css("display","none") ;
         var name=$("#name").val();
-
         $.ajax({
             type:"POST",
             data:"",
@@ -30,5 +30,15 @@ $(document).ready(function(){
     });
 
     $("#addButton").click(addBuilding);
+    $("#cancel").click(function(){
+        $("#addForm").css("display","none") ;
+    });
+
+    $("#addForm").click(function(e){
+        if (e.target === this){
+            $(this).css("display","none") ;
+        }
+    })
+
 
 });

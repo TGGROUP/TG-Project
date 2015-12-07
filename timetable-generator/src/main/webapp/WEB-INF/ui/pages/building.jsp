@@ -63,6 +63,15 @@
 </div>
 
 
+<div id="addForm">
+  <div id="cont">
+    <input id="nameField" type="text" name="name"><br>
+    <input id="addButton" class="button" type="button" value="ok" > <input id="cancel" class="button" type="button" value="cancel">
+  </div>
+
+
+</div>
+
 
 
 </body>
