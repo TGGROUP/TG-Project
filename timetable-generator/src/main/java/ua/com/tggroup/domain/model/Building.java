@@ -10,6 +10,7 @@ import java.util.List;
 })
 
 @Entity
+
 @Table(name = "Building")
 public class Building {
     @Id
@@ -53,5 +54,22 @@ public class Building {
                 ", name='" + name + '\'' +
                 ", rooms=" + rooms +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Building)) return false;
+
+        Building building = (Building) o;
+
+        if (id != building.id) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
     }
 }

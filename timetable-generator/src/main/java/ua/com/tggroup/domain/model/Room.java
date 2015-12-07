@@ -11,6 +11,15 @@ public class Room {
 
     private String name;
 
+    private int capacity;
+
+    private boolean hasProjector;
+
+    private boolean hasBoard;
+
+    private boolean isComputerClass;
+
+
     @ManyToOne()
     @JoinColumn(name = "building_id")
     private Building building;
@@ -37,6 +46,38 @@ public class Room {
 
     public void setBuilding(Building building) {
         this.building = building;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public boolean isHasProjector() {
+        return hasProjector;
+    }
+
+    public void setHasProjector(boolean hasProjector) {
+        this.hasProjector = hasProjector;
+    }
+
+    public boolean isHasBoard() {
+        return hasBoard;
+    }
+
+    public void setHasBoard(boolean hasBoard) {
+        this.hasBoard = hasBoard;
+    }
+
+    public boolean isComputerClass() {
+        return isComputerClass;
+    }
+
+    public void setComputerClass(boolean isComputerClass) {
+        this.isComputerClass = isComputerClass;
     }
 
     @Override
