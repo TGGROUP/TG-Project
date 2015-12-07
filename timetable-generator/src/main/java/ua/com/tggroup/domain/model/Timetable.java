@@ -35,7 +35,7 @@ public class Timetable {
     }
 
     @Override
-г    public String toString() {
+    public String toString() {
         return "Timetable{" +
                 "id=" + id +
                 ", weeks=" + weeks +
