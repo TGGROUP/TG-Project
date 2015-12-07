@@ -33,5 +33,5 @@
               <property name="entityManagerFactory" ref="managerFactory"/>
        </bean>
        <tx:annotation-driven />
-       <context:component-scan base-package="ua.com.tggroup"/>
+
 </beans>

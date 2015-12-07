@@ -10,4 +10,5 @@ public interface BuildingService {
     public Building create(Building building);
     public Building update(Building building);
     public void remove(Building building);
+
 }

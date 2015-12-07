@@ -52,7 +52,7 @@ public class Building {
         return "Building{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", rooms=" + rooms +
+                ", rooms=" + ( (rooms != null) ? rooms.size() : 0 ) +
                 '}';
     }
 
@@ -72,4 +72,5 @@ public class Building {
     public int hashCode() {
         return id;
     }
+
 }
