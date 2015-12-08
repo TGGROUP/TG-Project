@@ -109,14 +109,14 @@ $(document).ready(function(){
                 "</div>"+
             "</div>"
         );
-        currentEleme=$("this");
+        currentElem=$("this");
     });
 
     $("#cancelEdit").click(function(){
         $("#superForm").remove();
     });
 
-    $("#confirmEdit").click(editBuilding(currentEleme));
+    $("#confirmEdit").click(editBuilding(currentElem));
 
 
 });
