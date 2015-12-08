@@ -18,7 +18,7 @@
 <body>
 <div id="left-side">
   <div class="block">
-    <img id="photo"><span id="name">Name: <span class="role">Maxik           Kostenko</span></br>Role: <span class="role">Teacher</span></span>
+    <img id="photo"><span id="name">Name: <span class="role">Petrenko V.</span></br>Role: <span class="role">Teacher</span></span>
   </div>
   <input class="button"  type="button" value="logout">
 

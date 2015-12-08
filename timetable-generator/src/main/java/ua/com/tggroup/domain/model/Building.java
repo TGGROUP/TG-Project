@@ -47,14 +47,6 @@ public class Building {
         this.rooms = rooms;
     }
 
-    @Override
-    public String toString() {
-        return "Building{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", rooms=" + ( (rooms != null) ? rooms.size() : 0 ) +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -71,6 +63,15 @@ public class Building {
     @Override
     public int hashCode() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Building{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", rooms=" + ( (rooms != null) ? rooms.size() : 0 ) +
+                '}';
     }
 
 }

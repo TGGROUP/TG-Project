@@ -1,6 +1,8 @@
 package ua.com.tggroup.applayer.rest;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 import ua.com.tggroup.domain.model.Building;
 import ua.com.tggroup.domain.services.BuildingService;
 
-import java.util.logging.Logger;
 
-/**
- * Created by ihor on 07.12.2015.
- */
+
+
 @RestController
 @RequestMapping(value = "resources")
 public class BuildingResource {
-    private static final Logger LOGGER = Logger.getLogger("BuildingResource");
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BuildingResource.class);
     private static final int NO_CONTENT = 204;
+
     @Autowired
     private BuildingService buildingService;
 
@@ -30,6 +32,7 @@ public class BuildingResource {
         building.setName(name);
        return buildingService.create(building);
     }
+
     @RequestMapping(method = RequestMethod.DELETE,value = "/building")
     public HttpEntity<String> deleteBuilding(@RequestParam String id){
         LOGGER.info("/delete building :: form request" + id.length());
@@ -38,4 +41,6 @@ public class BuildingResource {
          buildingService.remove(building);
         return new HttpEntity(NO_CONTENT);
     }
+
+
 }

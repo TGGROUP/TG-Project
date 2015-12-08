@@ -23,7 +23,7 @@
 <div id="left-side">
 
     <div class="block">
-        <img id="photo"><span id="name">Name: <span class="role">Maxik           Kostenko</span></br>Role: <span
+        <img id="photo"><span id="name">Name: <span class="role">NGD123</span></br>Role: <span
             class="role">Admin</span></span>
     </div>
     <input class="button" type="button" value="logout">
