@@ -25,7 +25,7 @@ public class BuildingResource {
 
     @RequestMapping(method = RequestMethod.POST, value = "/buildings")
     public Building createBuilding(@RequestParam String name) {
-        LOGGER.info("/building :: form request : ", name);
+        LOGGER.info("/building :: form request : {}", name);
         Building building = new Building();
         building.setName(name);
         return buildingService.create(building);
@@ -33,7 +33,7 @@ public class BuildingResource {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/buildings/{id}")
     public HttpEntity<String> deleteBuilding(@PathVariable String id) {
-        LOGGER.info("/delete building :: form request : ", id);
+        LOGGER.info("/delete building :: form request : {} ", id);
         if (id != null) {
             try {
                 Integer buildingId = Integer.valueOf(id);
@@ -50,7 +50,7 @@ public class BuildingResource {
     @RequestMapping(method = RequestMethod.PUT, value = "/buildings",consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateBuilding(@RequestBody Building building ){
-        LOGGER.info("/updateBuilding :: form request : ", building);
+        LOGGER.info("/updateBuilding :: form request : {}", building);
         buildingService.update(building);
     }
 
