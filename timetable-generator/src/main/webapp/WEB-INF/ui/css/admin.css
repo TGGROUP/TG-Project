@@ -219,7 +219,7 @@ li a{
 	line-height:80px;
 }
 
-#del-pane{
+.del-pane{
 	width:30px;
 	height:20px;
 	background:#f75b5b;
@@ -229,7 +229,7 @@ li a{
 	text-align:center;
 }
 
-#del-pane a{
+.del-pane a{
 	color:white;
 }
 

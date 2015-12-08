@@ -2,9 +2,10 @@ package ua.com.tggroup.dao.impl;
 
 import ua.com.tggroup.dao.BuildingRepository;
 import ua.com.tggroup.domain.model.Building;
-import ua.com.tggroup.domain.model.Room;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Igor on 07.12.2015.
@@ -37,7 +38,7 @@ public class BuildingRepositoryFictionImpl implements BuildingRepository{
     }
 
     @Override
-    public void delete(Building building) {
-        FictionRepository.BUILDINGS.remove(building);
+    public void delete(int buildingId) {
+        FictionRepository.BUILDINGS.remove(buildingId);
     }
 }

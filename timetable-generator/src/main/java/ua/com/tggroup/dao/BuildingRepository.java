@@ -9,5 +9,5 @@ public interface BuildingRepository {
     public List<Building> getAll();
     public Building create(Building building);
     public Building update(Building building);
-    public void delete(Building building);
+    public void delete(int buildingId);
 }

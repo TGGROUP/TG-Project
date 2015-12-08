@@ -6,7 +6,9 @@ import java.util.List;
 
 @NamedQueries({
         @NamedQuery(name="Building.getAll",
-                query="SELECT b FROM Building b")
+                query="SELECT b FROM Building b"),
+        @NamedQuery(name="Building.removeById",
+        query="Delete  FROM Building b WHERE b.id= :id")
 })
 
 @Entity

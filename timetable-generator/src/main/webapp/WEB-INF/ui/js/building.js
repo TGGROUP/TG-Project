@@ -14,8 +14,8 @@ $(document).ready(function(){
             dataType:"json",
             success :  function(data){
                 $("#content").append("<div class='entity'>"+
-                "<div id='del-pane' name='+data.id+'>" +
-                " <a href=#del'>&#10006;</a>"+
+                "<div class='del-pane' >" +
+                "<input type='hidden' value="+data.id +" /> &#10006;"+
                 "</div>"+
                 "<div id='f-name'><a href='rooms.html'><span>"+data.name+"</span></a></div>" +
                 " <div id='edit-pane' class='active'>" +
@@ -40,17 +40,18 @@ $(document).ready(function(){
             $(this).css("display","none") ;
         }
     });
-    $("#del-pane").click(function(e){
+    $(".del-pane").click(function(e){
         console.log("on delete : ");
-       var id =this.attr("name");
+
+        var id = $(this).children(":first").val();
+        var currentElement = $(this);
         console.log("on delete : "+id);
         $.ajax({
             type:"DELETE",
-            data:"id="+id,
-            url:"resources/building",
+            url:"resources/building?id="+id,
             dataType:"json",
             success :  function(data){
-               this.parent.remove();
+                currentElement.parent().remove();
             }
         });
     });

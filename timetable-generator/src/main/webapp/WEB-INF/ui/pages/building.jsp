@@ -51,8 +51,8 @@
 <div id="content">
     <c:forEach var="building" items="${buildings}">
         <div class="entity">
-            <div  id="del-pane"  >
-                <input type="hidden" value="${building.id}">
+            <div class="del-pane">
+                <input type="hidden" value="${building.id}"/>
               &#10006;
             </div>
             <div id="f-name"><a href="rooms.html?id=${building.id}"><span>${building.name}</span></a></div>

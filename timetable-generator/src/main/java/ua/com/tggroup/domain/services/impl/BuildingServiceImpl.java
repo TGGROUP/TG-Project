@@ -33,7 +33,7 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     @Override
-    public void remove(Building building) {
-         buildingRepository.delete(building);
+    public void remove(int buildingId) {
+         buildingRepository.delete(buildingId);
     }
 }

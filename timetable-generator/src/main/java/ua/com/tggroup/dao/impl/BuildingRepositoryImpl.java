@@ -33,7 +33,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
     }
 
     @Override
-    public void delete(Building building) {
-        entityManager.remove(building);
+    public void delete(int buildingId) {
+        entityManager.remove(entityManager.find(Building.class,buildingId));
     }
 }
