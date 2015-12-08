@@ -33,7 +33,7 @@ $(document).ready(function(){
         console.log("on delete : "+id);
         $.ajax({
             type:"DELETE",
-            url:"resources/building?id="+id,
+            url:"resources/building/"+id,
             dataType:"json",
             success :  function(data){
                 element.parent().remove();
