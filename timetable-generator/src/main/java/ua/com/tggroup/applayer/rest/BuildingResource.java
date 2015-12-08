@@ -5,15 +5,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ua.com.tggroup.applayer.rest.exception.ApplicationLayerException;
 import ua.com.tggroup.domain.model.Building;
 import ua.com.tggroup.domain.services.BuildingService;
-
-
 
 
 @RestController
@@ -27,24 +22,29 @@ public class BuildingResource {
     @Autowired
     private BuildingService buildingService;
 
-    @RequestMapping(method = RequestMethod.POST,value = "/building")
-    public Building createBuilding(@RequestParam String name){
-        LOGGER.info("/building :: form request : " , name);
+    @RequestMapping(method = RequestMethod.POST, value = "/building")
+    public Building createBuilding(@RequestParam String name) {
+        LOGGER.info("/building :: form request : ", name);
         Building building = new Building();
         building.setName(name);
-       return buildingService.create(building);
+        return buildingService.create(building);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE,value = "/building")
-    public HttpEntity<String> deleteBuilding(@RequestParam String id){
-        LOGGER.info("/delete building :: form request : " , id);
-        try {
-            Integer buildingId = Integer.valueOf(id);
-            buildingService.remove(buildingId);
-            return new HttpEntity(NO_CONTENT);
-        } catch (NumberFormatException e) {
-            throw new ApplicationLayerException("Incorrect id from client ",e);
+    @RequestMapping(method = RequestMethod.DELETE, value = "/building/{id}")
+    public HttpEntity<String> deleteBuilding(@PathVariable String id) {
+        LOGGER.info("/delete building :: form request : ", id);
+        if (id != null) {
+            try {
+                Integer buildingId = Integer.valueOf(id);
+                buildingService.remove(buildingId);
+                return new HttpEntity(NO_CONTENT);
+            } catch (NumberFormatException e) {
+                throw new ApplicationLayerException("Incorrect id from client ", e);
+            }
         }
+        throw new ApplicationLayerException("Id drom clinet is null");
+
+
     }
 
 

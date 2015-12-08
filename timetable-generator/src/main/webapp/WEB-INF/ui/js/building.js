@@ -27,14 +27,6 @@ $(document).ready(function(){
 
 
 
-
-    function editBuilding(element){
-
-    }
-
-
-
-
     $(".add").click(function(){
         $("body").append(
             "<div id='superForm'>"+
