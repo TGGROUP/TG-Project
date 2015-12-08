@@ -4,7 +4,6 @@
 $(document).ready(function(){
 
     function addBuilding(){
-        $("#addForm").css("display","none") ;
         var name=$("#nameField").val();
         console.log(name);
         $.ajax({
@@ -21,29 +20,73 @@ $(document).ready(function(){
                 " <div id='edit-pane' class='active'>" +
                 "<a href=#edit' >&#9998;edit</a>"+
                 "</div></div>");
+                $("#superForm").remove();
             }
         });
     }
 
 
+    function delBuilding(element){
+        console.log("on delete : ");
+
+        var id = element.parent().children(":first").val();
+        console.log("on delete : "+id);
+        $.ajax({
+            type:"DELETE",
+            url:"resources/building?id="+id,
+            dataType:"json",
+            success :  function(data){
+                element.parent().remove();
+            }
+        });
+    }
+
+    function editBuilding(element){
+        var id = element.parent().children(":first").val();
+        var name= $("#editField").val();
+        var editElement=  element.parent().children("#f-name");
+        $.ajax({
+            type:"POST",
+            data:{"id":id,"name":name},
+            url:"resources/building",
+            dataType:"json",
+            success :  function(data){
+                editElement.children(":first").children().remove().append("<span>"+data.name+"</span>") ;
+                $("#superForm").remove();
+            }
+        });
+    }
+
+
+
+
     $(".add").click(function(){
-        $("#addForm").css("display","block") ;
+        $("body").append(
+            "<div id='superForm'>"+
+                "<div id='superCont'>"+
+                    "<input id='nameField' type='text' name='name'><br>"+
+                    "<input id='addButton' class='button' type='button' value='ok'> <input id='cancel' class='button' type='button' value='cancel'>"+
+                "</div>"+
+            "</div>"
+        );
     });
 
     $("#addButton").click(addBuilding);
     $("#cancel").click(function(){
-        $("#addForm").css("display","none") ;
+        $("#superForm").remove();
     });
 
-    $("#addForm").click(function(e){
+    $("#superForm").click(function(e){
         if (e.target === this){
-            $(this).css("display","none") ;
+            $(this).remove() ;
         }
     });
-    $(".del-pane").click(function(e){
+
+    $(".del-pane").click(delBuilding($(this)));
+    /*$(".del-pane").click(function(e){
         console.log("on delete : ");
 
-        var id = $(this).children(":first").val();
+        var id = $(this).parent().children(":first").val();
         var currentElement = $(this);
         console.log("on delete : "+id);
         $.ajax({
@@ -54,6 +97,26 @@ $(document).ready(function(){
                 currentElement.parent().remove();
             }
         });
+    });   */
+    var currentElem=0;
+    $(".edit-pane").click(function(){
+        $("body").append(
+            "<div id='superForm'>"+
+                "<div id='superCont'>"+
+                    "<input id='editField' type='text'/>"+
+                    "<input id='confirmEdit' type='button' class='button' value='ok'/>"+
+                    "<input id='cancelEdit' type='button' class='button' value='cancel'/>"+
+                "</div>"+
+            "</div>"
+        );
+        currentEleme=$("this");
     });
+
+    $("#cancelEdit").click(function(){
+        $("#superForm").remove();
+    });
+
+    $("#confirmEdit").click(editBuilding(currentEleme));
+
 
 });

@@ -51,13 +51,13 @@
 <div id="content">
     <c:forEach var="building" items="${buildings}">
         <div class="entity">
+            <input type="hidden" value="${building.id}"/>
             <div class="del-pane">
-                <input type="hidden" value="${building.id}"/>
               &#10006;
             </div>
             <div id="f-name"><a href="rooms.html?id=${building.id}"><span>${building.name}</span></a></div>
-            <div id="edit-pane" class="active">
-                <a href="#edit">&#9998;edit</a>
+            <div class="edit-pane active">
+                &#9998;edit
             </div>
         </div>
     </c:forEach>
@@ -66,14 +66,7 @@
     </div>
 </div>
 
-<div id="addForm">
-    <div id="cont">
-        <input id="nameField" type="text" name="name"><br>
-        <input id="addButton" class="button" type="button" value="ok"> <input id="cancel" class="button" type="button"
-                                                                              value="cancel">
-    </div>
 
-</div>
 
 </body>
 
