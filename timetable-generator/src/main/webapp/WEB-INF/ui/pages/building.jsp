@@ -11,11 +11,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/resources/css/left-side.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/admin.css" type="text/css">
-    <link rel="stylesheet" href="/resources/css/buttons.css" type="text/css">
-    <script src="/resources/js/jquery-2.1.3.min.js" type="text/javascript"></script>
-    <script src="/resources/js/building.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="resources/css/left-side.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/admin.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/buttons.css" type="text/css">
+
     <!--<script src="js/menu.js" type="text/javascript"></script>-->
 </head>
 
@@ -53,7 +52,7 @@
         <div class="entity">
             <input type="hidden" value="${building.id}"/>
             <div class="del-pane">
-              &#10006;
+                &#10006;
             </div>
             <div id="f-name"><a href="rooms.html?id=${building.id}"><span>${building.name}</span></a></div>
             <div class="edit-pane active">
@@ -67,7 +66,8 @@
 </div>
 
 
-
+<script src="resources/js/jquery-2.1.3.min.js" type="text/javascript"></script>
+<script src="resources/js/building.js" type="text/javascript"></script>
 </body>
 
 </html>
